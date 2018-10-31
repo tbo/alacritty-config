@@ -59,7 +59,7 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 15.0
+  size: 16.5
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -90,7 +90,9 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x0c1014'
+    # background: '0x0c1014'
+    # background: '0x05090b'
+    background: '0x000000'
     foreground: '0xeaeaea'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
@@ -245,11 +247,14 @@ key_bindings:
   - { key: N,        mods: Super,   chars: "\x1b[20~"                    }
   - { key: D,        mods: Super,    chars: "\x1b[21~"                   }
   - { key: F,        mods: Super,   chars: "\x1b[23~"                    }
-  - { key: F12,                     chars: "\x1b[24~"                    }
+  - { key: R,      mods: Super,   chars: "\x1b[24~"                    }
   - { key: Back,                    chars: "\x7f"                        }
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Key0,     mods: Command, action: ResetFontSize                }
+  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
 
 # Mouse bindings
 #
@@ -283,7 +288,8 @@ hide_cursor_when_typing: true
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /usr/local/bin/fish
+  args:
+    - -c 
+    - "abduco -A dev nvim"
